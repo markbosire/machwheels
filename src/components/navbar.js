@@ -45,8 +45,8 @@ function Navbar({ user }) {
         </div>
         <div className="m">
           <PersonIcon />{" "}
-          {user ? (
-            <span onClick={SignOut}>{user.name}</span>
+          {theuser ? (
+            <span onClick={SignOut}>{theuser.name}</span>
           ) : (
             <span onClick={SignIn}>Log In</span>
           )}
