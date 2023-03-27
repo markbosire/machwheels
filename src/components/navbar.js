@@ -14,6 +14,10 @@ function Navbar({ user }) {
       pathname: "/signIn",
     });
   }
+  function SignOut(){
+    user=null;
+  }
+    
   function Dashboard() {
     navigate("/dashboard", { state: { user: user } });
   }
@@ -40,7 +44,7 @@ function Navbar({ user }) {
         <div className="m">
           <PersonIcon />{" "}
           {user ? (
-            <span>{user.name}</span>
+            <span onClick={SignOut}>{user.name}</span>
           ) : (
             <span onClick={SignIn}>Log In</span>
           )}
