@@ -146,7 +146,7 @@ function MidSection({ user }) {
         </div>
         <Slider {...settings}>
           {cars.map((car) => (
-            <CarCard key={cars._id} car={car} token={user} />
+            <CarCard key={cars._id} car={car} user={user} />
           ))}
         </Slider>
       </div>
