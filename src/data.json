@@ -1,0 +1,44 @@
+{
+  "cars": [
+    {
+      "brand": "Toyota",
+      "passenger_seats": 5,
+      "car_type": "Sedan",
+      "price_level": "Economy",
+      "fuel_type": "Gasoline",
+      "gear": "Automatic"
+    },
+    {
+      "brand": "Honda",
+      "passenger_seats": 5,
+      "car_type": "Sportscar",
+      "price_level": "Economy",
+      "fuel_type": "Gasoline",
+      "gear": "Automatic"
+    },
+    {
+      "brand": "BMW",
+      "passenger_seats": 5,
+      "car_type": "Sedan",
+      "price_level": "Luxury",
+      "fuel_type": "Gasoline",
+      "gear": "Automatic"
+    },
+    {
+      "brand": "Mercedes-Benz",
+      "passenger_seats": 5,
+      "car_type": "SUV",
+      "price_level": "Luxury",
+      "fuel_type": "Diesel",
+      "gear": "Automatic"
+    },
+    {
+      "brand": "Tesla",
+      "passenger_seats": 5,
+      "car_type": "Sedan",
+      "price_level": "Luxury",
+      "fuel_type": "Electric",
+      "gear": "Automatic"
+    }
+  ]
+}

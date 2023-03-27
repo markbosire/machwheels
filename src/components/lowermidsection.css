@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+.sectionRow {
+  font-family: "Questrial", sans-serif;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-evenly;
+}
+
+.sect1 {
+  max-width: 15%;
+}
+.sect2 {
+  max-width: 22%;
+}
+.sect2 section {
+  display: flex;
+  align-items: center;
+}
+.sect3 img {
+  height: 400px;
+  width: 500px;
+  object-fit: cover;
+}
+.baseline-aligned {
+  align-items: first baseline;
+}
+@media screen and (max-width: 1600px) {
+  .sect3 img {
+    height: 300px;
+    width: 300px;
+  }
+  .sect1 {
+    max-width: 24%;
+  }
+  .sect2 {
+    max-width: 30%;
+  }
+}
+@media screen and (max-width: 960px) {
+  .sectionRow {
+    flex-direction: column;
+    align-items: normal;
+    padding-left: 50px;
+    margin-top: 100px;
+  }
+  .sect1,
+  .sect2 {
+    max-width: 80%;
+  }
+
+  .sect1 p {
+    max-width: 70%;
+  }
+  .sect3 {
+    display: none;
+    visibility: hidden;
+    width: 1;
+  }
+}
+@media screen and (max-width: 800px) {
+  .sect1,
+  .sect2 {
+    max-width: 90%;
+  }
+  .sectionRow {
+    margin-top: 100px;
+    padding-left: 20px;
+  }
+
+  .sect1 h1 {
+    font-size: 30px;
+  }
+  .sect1 p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .sectionRow {
+  }
+}

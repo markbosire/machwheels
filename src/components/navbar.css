@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #f518e3 0%,
+    #fbae24 51%,
+    #f518e3 100%
+  );
+  margin: 0px;
+  padding: 7px 15px;
+  text-align: center;
+
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+}
+.btn-grad span {
+  width: 160px;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.img {
+  width: 250px;
+  height: 70px;
+  object-fit: contain;
+}
+.navbar {
+  font-family: "Questrial", sans-serif;
+  font-size: 15px;
+  display: flex;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  max-width: 100%;
+  width: 100vw;
+}
+.avadiv span {
+  width: 10px;
+}
+.avadiv {
+  margin: 0;
+}
+.menu {
+  margin-left: 25px;
+  transform: rotate(-90deg);
+}
+.span {
+  width: 10px;
+}
+.avatar {
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  margin-left: 14px;
+}
+.phone {
+  color: #f518e3;
+}
+.section1 {
+  display: flex;
+
+  align-items: center;
+}
+.section1 p {
+  margin-left: 25px;
+}
+.section2 p {
+  width: 150px;
+  margin: 0;
+}
+.section2 {
+  min-width: 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section2 div {
+  display: flex;
+
+  align-items: center;
+  margin-left: 25px;
+}
+.section15 {
+  width: calc(20%);
+}
+@media screen and (max-width: 1500px) {
+  .navbar p {
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  .section2 .m {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 961px) {
+  .section1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .section1 p {
+    margin-left: 25px;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .navbar {
+    padding: 0 50px;
+  }
+}

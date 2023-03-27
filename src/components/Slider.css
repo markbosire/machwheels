@@ -1,0 +1,162 @@
+/* fonts.css */
+
+/* Questrial font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+
+.slide1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("../assets/images/bg1.jpeg");
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+}
+
+.slide2 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("../assets/images/bg2.jpeg");
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+}
+
+.slide3 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("../assets/images/bg3.jpeg");
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+}
+
+.slide-content {
+  color: #fff;
+  position: relative;
+  top: 25%;
+  left: 5%;
+  font-family: "Questrial", sans-serif;
+}
+.slide-content h2 {
+  max-width: 40%;
+  font-size: 60px;
+  font-weight: 900;
+  margin: 0;
+}
+.slide-content p {
+  max-width: 40%;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.slick-dots {
+  position: absolute; /* Position the dots absolutely inside the container */
+  bottom: 20px; /* Adjust the bottom position as needed */
+  left: -89.5%;
+  top: 60%; /* Align the dots to the left */
+  right: 0; /* Align the dots to the right */
+  margin: 0 auto; /* Center the dots horizontally */
+  display: flex;
+  justify-content: center;
+}
+
+.slick-dots li {
+  margin: 0;
+  width: 10px;
+  height: 10px; /* Add some spacing between the dots */
+}
+.slick-dots li button {
+  margin: 0;
+  /* Make the dot round */
+  width: 8px; /* Set the dot width */
+  height: 8px; /* Set the dot height */
+  cursor: pointer;
+}
+.slick-dots li button::before {
+  opacity: 0.5;
+  color: #fff;
+}
+.slick-dots li button::after {
+  opacity: 1;
+  color: #000;
+  width: 20px;
+}
+.slick-arrow {
+  position: absolute;
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+
+  top: 50%;
+
+  border: none;
+  font-size: 12px;
+}
+.slick-prev {
+  left: 1%;
+}
+
+.slick-next {
+  right: 1%;
+}
+@media screen and (max-width: 1600px) {
+  .slide-content h2 {
+    font-size: 50px;
+    max-width: 60%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .slide-content h2 {
+    font-size: 30px;
+  }
+  .slide-content p {
+    max-width: 70%;
+
+    font-size: 16.5px;
+  }
+  .slick-prev {
+    left: 0.5%;
+  }
+
+  .slick-next {
+    right: 0.5%;
+  }
+  .slick-dots {
+    top: 65%;
+    left: -80.5%;
+  }
+  .slide-content {
+    top: 38%;
+    left: 8%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .slide-content {
+    top: 34%;
+    left: 10%;
+  }
+  .slick-dots {
+    left: -77.5%;
+    top: 66%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .slide-content p {
+    max-width: 70%;
+
+    font-size: 14px;
+  }
+  .slide-content {
+    top: 30%;
+    left: 10%;
+  }
+  .slick-dots {
+    left: -77.5%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .slide-content p {
+    max-width: 70%;
+
+    font-size: 12px;
+  }
+}

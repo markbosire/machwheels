@@ -1,0 +1,24 @@
+{
+  "faqs": [
+    {
+      "question": "How do I rent a car?",
+      "answer": "To rent a car, browse our selection online, choose your preferred vehicle, and complete the booking process. You can also visit one of our locations to rent a car in person."
+    },
+    {
+      "question": "What is the minimum age to rent a car?",
+      "answer": "The minimum age to rent a car with our company is 21 years old. However, drivers under the age of 25 may be subject to additional fees and restrictions."
+    },
+    {
+      "question": "Do you offer any discounts?",
+      "answer": "Yes, we offer discounts for AAA members, military personnel, and other eligible groups. Check our website or contact us for more information on available discounts."
+    },
+    {
+      "question": "What documents do I need to rent a car?",
+      "answer": "To rent a car, you will need a valid driver's license, proof of insurance, and a valid credit card in your name. Additional documentation may be required for international renters."
+    },
+    {
+      "question": "Can I extend my rental period?",
+      "answer": "Yes, you can extend your rental period by contacting our customer service team or visiting one of our locations. Additional charges may apply for extending your rental."
+    }
+  ]
+}

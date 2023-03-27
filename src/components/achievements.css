@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+.achievements {
+  z-index: 1;
+  display: flex;
+  margin: 0;
+  position: static;
+  height: fit-content;
+  padding: 0;
+  margin-top: 250px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+  max-width: 100%;
+  width: 100vw;
+  color: black;
+  font-family: "Questrial", sans-serif;
+  font-size: 16px;
+
+  padding: 0 150px;
+}
+.image img {
+  width: 800px;
+  height: 600px;
+  object-fit: cover;
+}
+.paragraph {
+  max-width: 30%;
+}
+.paragraphp {
+  color: black;
+  font-size: 16px;
+}
+.paragraphh1 {
+  color: black;
+  font-size: 30px;
+  max-width: 58%;
+}
+
+.rows section {
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+}
+.rows section p {
+  margin-left: 5px;
+}
+.pp2 {
+  margin-right: 65px;
+}
+.pp1 {
+  margin-right: 136px;
+}
+@media screen and (max-width: 1600px) {
+  .image img {
+    width: 500px;
+    height: 450px;
+    object-fit: cover;
+  }
+  .blurred {
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 960px) {
+  .achievements .paragraph {
+    max-width: 100%;
+  }
+  .achievements {
+    display: block;
+    padding: 0 50px;
+    align-items: normal;
+    text-align: left;
+  }
+  .image img {
+    display: none;
+  }
+  .blurred {
+    position: static !important;
+    justify-content: space-evenly;
+    top: 0 !important;
+    left: 0 !important;
+    width: 60%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .achievements .paragraph {
+    display: none;
+  }
+  .achievements {
+  }
+  .blurred {
+    visibility: visible;
+    flex-direction: column;
+    top: 15% !important;
+    left: 42% !important;
+    height: 500px;
+  }
+  .image img {
+    width: 800px;
+    height: 700px;
+    object-fit: cover;
+  }
+}
+@media screen and (max-width: 500px) {
+  .blurred {
+    flex-direction: column;
+    top: 15% !important;
+    left: 30% !important;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .achievements {
+  }
+}
+@media screen and (max-width: 1200px) {
+  .achievements {
+    padding: 0 50px;
+  }
+}

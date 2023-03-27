@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #f518e3 0%,
+    #fbae24 51%,
+    #f518e3 100%
+  );
+  margin: 0px;
+  padding: 7px 15px;
+  text-align: center;
+
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+}
+.btn-grad span {
+  width: 160px;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.feature-deals {
+  display: flex;
+  align-items: center;
+  font-family: "Questrial", sans-serif;
+}
+
+.title {
+  font-family: "Questrial", sans-serif;
+  font-size: 45px;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.pg {
+  margin-top: 250px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pgp {
+  margin: 0;
+  font-family: "Questrial", sans-serif;
+  font-size: 15px;
+  max-width: 60%;
+}
+.title span {
+  margin-left: 5px;
+  font-weight: bold;
+}
+.baseline-aligned {
+  align-items: baseline;
+  background-color: #fff;
+}
+.one {
+  font-family: "Questrial", sans-serif;
+  font-size: 180px;
+  color: #ffecf9;
+}
+.numbers {
+  display: flex;
+  align-items: baseline;
+  background-color: #fff;
+  width: fit-content;
+}
+.countdown-div {
+  font-family: "Questrial", sans-serif;
+  margin-top: 240px;
+  margin-left: 150px;
+  margin-right: 150px;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+
+  justify-content: center;
+  background-color: transparent;
+}
+
+.mg {
+  margin-bottom: 5px;
+}
+.cars {
+  position: relative;
+}
+
+.cars {
+  padding: 0 150px;
+  margin-top: 100px;
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+.custom-dot {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.custom-dot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cars .slick-next:before {
+  color: #cf85b7;
+}
+.cars .slick-prev:before {
+  color: #cf85b7;
+}
+@media screen and (max-width: 1200px) {
+  .pg {
+    left: 0;
+  }
+  .cars {
+    left: 0.5%;
+    margin: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .pg {
+    align-items: center;
+    left: 15%;
+  }
+  .MuiAvatar-root {
+    width: 30px;
+    height: 30px;
+  }
+  .one {
+    font-size: 100px;
+  }
+  .countdown-div h1 {
+    font-size: 20px;
+  }
+  .countdown-div p {
+    font-size: 14px;
+  }
+  .countdown-div {
+    margin-top: 150px;
+    margin-left: 75px;
+    margin-right: 75px;
+  }
+  .countdown-div p {
+    max-width: 85%;
+  }
+  .cars {
+    margin-top: 150px;
+
+    width: 100%;
+    padding: 0 75px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .countdown-div {
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .countdown-div p {
+    max-width: 85%;
+  }
+  .cars {
+    margin-top: 100px;
+
+    width: 100%;
+    padding: 0 50px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .pg {
+    text-align: left;
+    align-items: normal;
+    margin-left: 20px;
+  }
+  .countdown-div p {
+    max-width: 90%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .pg {
+    margin-top: 100px;
+  }
+  .btn-grad {
+    margin-left: 75px;
+  }
+
+  .title {
+    font-size: 35px;
+    flex-direction: flex;
+  }
+  .countdown-div {
+  }
+  .title p {
+    margin: 0;
+    max-width: 100%;
+  }
+  .pgp {
+    margin-top: 10px;
+    font-family: "Questrial", sans-serif;
+    font-size: 20px;
+    max-width: 90%;
+  }
+  .countdown-div {
+    font-family: "Questrial", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+
+    margin-left: 20px;
+    margin-top: 100px;
+
+    z-index: 2;
+
+    background-color: transparent;
+  }
+  .dotted-line {
+    border-top: 0px dashed gray;
+  }
+
+  .countdown-div p {
+    max-width: 100%;
+  }
+  .cars {
+    margin-top: 100px;
+    padding: 0 20px;
+  }
+  .cars .slick-slide {
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .cars .slick-prev {
+    left: 0%;
+  }
+
+  .cars .slick-next {
+    right: 0%;
+  }
+  .ft_title {
+    font-size: 20px !important;
+    max-width: 60% !important;
+    width: 60% !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .cars .slick-prev {
+    left: 0.5%;
+  }
+
+  .cars .slick-next {
+    right: 0.5%;
+  }
+  .cars {
+    left: 1%;
+
+    width: 95%;
+  }
+}

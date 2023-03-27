@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+.form-group,
+.form-grou {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid grey;
+  position: relative;
+  margin-left: 5px;
+  justify-content: space-between;
+}
+
+.fa {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  margin-left: 3px;
+  transform: translateY(-50%);
+  font-size: 23px !important;
+  color: #5f5f5f;
+}
+form {
+  z-index: 23;
+}
+
+input {
+  color: black;
+  outline: none;
+  border: none;
+  display: block;
+  line-height: 1.2em;
+  font-size: 14pt;
+  padding-left: 25px; /* Add padding to prevent the text from overlapping with the icon */
+}
+
+label {
+  margin-left: 26px;
+  display: block;
+  font-size: 12px;
+  color: #5f5f5f;
+}
+select {
+  border: 0;
+  width: auto;
+  margin-left: 26px;
+  outline: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.widget {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Other styles */
+  z-index: 23;
+  background-color: white;
+  max-width: 80%;
+  margin: 0;
+  padding: 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+  font-family: "Questrial", sans-serif;
+}
+.vt {
+  width: 250px;
+}
+.top-widget {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.bottom-widget {
+  width: 100%;
+}
+.top-widget div {
+  width: calc(51%);
+}
+.bottom-widget .form-group {
+  width: calc(26.566%);
+}
+.widget section {
+  display: flex;
+}
+.dp {
+  font-size: 14px;
+  margin: 0;
+  background-color: transparent;
+}
+.p {
+  top: 62%;
+  left: 46%;
+  position: absolute;
+  font-family: "Questrial", sans-serif;
+  color: black;
+  font-size: 12px;
+}
+.mg {
+  margin-bottom: 5px;
+}
+.cb::after {
+  background-color: black;
+  color: white;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+.terms {
+  display: flex;
+}
+.terms p {
+  margin-left: 2px;
+}
+
+.react-datepicker__input-container input {
+  font-size: 14px;
+  margin: 0;
+  background-color: transparent;
+}
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected:hover {
+  background-color: #000;
+}
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected {
+  background-color: #000;
+  color: white;
+  font-weight: bold;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range,
+.react-datepicker__year-text--selected,
+.react-datepicker__year-text--in-selecting-range,
+.react-datepicker__year-text--in-range {
+  background-color: #000;
+  color: #fff;
+}
+@media screen and (max-width: 1200px) {
+  .widget {
+    min-width: 90%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .widget {
+    /* Remove top and left properties to let the widget flow normally in the document */
+    position: static;
+    transform: none;
+
+    margin: 10px auto;
+  }
+  .bottom-widget {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .bottom-widget div {
+    margin-bottom: 7px;
+  }
+  .bottom-widget .form-group {
+    width: auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  .widget {
+    min-width: 90%;
+  }
+}
