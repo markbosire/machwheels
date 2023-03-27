@@ -9,13 +9,15 @@ import { Avatar } from "@mui/material";
 
 function Navbar({ user }) {
   const navigate = useNavigate();
+ const [theuser, setTheuser] = useState(user);
+ 
   function SignIn() {
     navigate({
       pathname: "/signIn",
     });
   }
   function SignOut(){
-    user=null;
+    setTheuser(null)
   }
     
   function Dashboard() {
