@@ -13,11 +13,9 @@ const CarCard = ({ car, user }) => {
   var priceLevel;
   var tag;
   function Checkout() {
-      if (user) {
+     
       navigate("/checkout", { state: { car: car, user: user } });
-    } else {
-      alert("sign up");
-    }
+   
   }
   if (car.rating === "good") {
     averageRating = 5;
