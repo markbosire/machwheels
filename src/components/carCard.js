@@ -7,14 +7,18 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useNavigate } from "react-router-dom";
 
-const CarCard = ({ car, user }) => {
-  const navigate = useNavigate();
+const CarCard = ({ car, user, action, clicked }) => {
+  function checkout() {
+    if (!user) {
+      action();
+    }
+    clicked();
+  }
+
   var averageRating;
   var priceLevel;
   var tag;
-  function Checkout() {     
-      navigate("/checkout", { state: { car: car, user: user } });  
-  }
+
   if (car.rating === "good") {
     averageRating = 5;
   }
@@ -24,7 +28,7 @@ const CarCard = ({ car, user }) => {
       ? "./assets/images/gold.png"
       : "./assets/images/silver.png";
   return (
-    <div className="car-card" onClick={Checkout}>
+    <div className="car-card small" onClick={checkout}>
       <div
         className="car-image"
         style={{ backgroundImage: `url(${car.image})` }}

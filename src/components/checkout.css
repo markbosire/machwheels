@@ -6,6 +6,7 @@
   justify-content: space-evenly;
   background-color: #fff;
   width: fit-content;
+  height: max-content;
   padding: 20px;
 }
 .bottomwidget .form-group .div .fa {
@@ -38,23 +39,41 @@
 }
 .bottomwidget .form-group {
   width: 450px;
-  background-color: #e8ebf8;
+
   border-radius: 12px;
   display: flex;
 
   align-content: center;
 }
-.bottomwidget .form-group select {
-  background-color: #e8ebf8;
-}
+
 .checkout {
   font-family: "Questrial", sans-serif;
   color: #000;
-  background-color: #e8ebf8;
+
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
+}
+.checkout-title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-between;
+}
+.checkout h1 {
+  font-size: 1rem;
+}
+.tally {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+}
+.wth {
+  width: 80%;
 }

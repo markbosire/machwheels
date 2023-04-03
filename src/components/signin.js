@@ -1,31 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Alert } from "@mui/material";
 import "./signUp.css";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 const SignIn = () => {
+  const [isClicked, setIsClicked] = React.useState(false);
+  const handleReservationClick = () => {
+    setIsClicked(true);
+  };
+  const [passwordtoggle, setPasswordtoggle] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const { errorCheck, setErrorCheck } = useState(false);
+
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
 
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(" Check Credentials");
+
+  function toggle() {
+    setPasswordtoggle(!passwordtoggle);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(
-      "https://car-rentals-backend.vercel.app/api/v1/user/login",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: username, password }),
-      }
-    );
+    fetch("https://car-rentals-backend.vercel.app/api/v1/user/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: username, password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSuccess(true);
+        navigate("/home", { state: { user: data } });
+      })
+      .catch((error) => {
+        console.log(error);
+        let errorText = `Error ${error}`;
 
-    const data = await response.json();
-    console.log(data);
-    if (response.ok) {
-      navigate("/home", { state: { user: data } });
-    } else {
-    }
+        if (errorText.toLowerCase().includes("user")) {
+          setError("User does not exist");
+        }
+
+        setErrorCheck(true);
+      });
   };
   function SignUp() {
     navigate({
@@ -59,14 +79,25 @@ const SignIn = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="input-group" id="password">
+              <input
+                type={passwordtoggle ? "text" : "password"}
+                className="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {passwordtoggle ? (
+                <VisibilityOff onClick={toggle} sx={{ fontSize: "14px" }} />
+              ) : (
+                <Visibility onClick={toggle} sx={{ fontSize: "14px" }} />
+              )}
+            </div>
 
-            <button type="submit" className="button">
+            <button
+              type="submit"
+              className="button"
+              onClick={handleReservationClick}
+            >
               Sign In
             </button>
             <div className="logintag">
@@ -76,6 +107,10 @@ const SignIn = () => {
               </span>
             </div>
           </form>
+          {success && (
+            <Alert severity="success">"You signed in successfully"</Alert>
+          )}
+          {errorCheck && <Alert severity="error">error</Alert>}
         </div>
       </div>
     </div>

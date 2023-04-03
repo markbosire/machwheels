@@ -1,9 +1,9 @@
 import React from "react";
 import "./subscribe.css";
 
-const Subscribe = () => {
+const Subscribe = ({ contactRef }) => {
   return (
-    <div className="container">
+    <div className="container" ref={contactRef}>
       <img src="./assets/images/3.jpeg" alt="img" className="image-div"></img>
       <div className="content-div">
         <div className="section tile">

@@ -2,10 +2,10 @@ import React from "react";
 import { ChevronRight } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import "./lowermidsection.css";
-function LowerMidSection() {
+function LowerMidSection({ aboutRef }) {
   return (
     <React.Fragment>
-      <div className="sectionRow">
+      <div className="sectionRow" ref={aboutRef}>
         <div className="sect1 baseline-aligned">
           <h1>
             We are <strong>Machwheels</strong>

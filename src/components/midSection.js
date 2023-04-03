@@ -3,26 +3,73 @@ import { Avatar } from "@mui/material";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
+
+import { Alert, AlertTitle } from "@mui/material";
 
 import Slider from "react-slick";
 import "./midSection.css";
 
 import PlaceIcon from "@mui/icons-material/Place";
 import CarCard from "./carCard";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Checkout from "./checkout";
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "100%",
+
+  boxShadow: 24,
+  p: 4,
+};
+const useStyles = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  color: "transparent",
+
+  backgroundImage: "linear-gradient(120deg, #f093fb 0%, #f5576c 100%)",
+};
 function MidSection({ user }) {
+  const [carID, setCarID] = useState("");
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => setOpen(false);
+  const [isClicked, setIsClicked] = React.useState(false);
+  const handleReservationClick = () => {
+    if (!user) {
+      setIsClicked(true);
+      console.log("yu");
+    } else {
+      // handle reservation logic for logged in user
+    }
+  };
+
   const navigate = useNavigate();
   function Dashboard() {
     navigate("/dashboard", { state: { user: user } });
   }
   const settings = {
     arrows: true,
+    autoplay: true,
     infinite: true,
     speed: 500,
     slidesToShow: 5, // show 5 slides by default
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 1190,
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 4, // show 1 slide at 800px
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1300,
         settings: {
           slidesToShow: 3, // show 1 slide at 800px
           slidesToScroll: 1,
@@ -51,12 +98,39 @@ function MidSection({ user }) {
       .then((data) => setCars(data))
       .catch((error) => console.error(error));
   };
+  // Add a state variable to manage CircularProgress visibility
+  const [isLoading, setIsLoading] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  // Update the isLoading state when the modal loads
+
+  // Hide the CircularProgress when the modal content is loaded
+  const onContentLoaded = () => {
+    //setIsLoading(false);
+  };
 
   useEffect(() => {
     fetchData();
   }, []);
   return (
     <React.Fragment>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Checkout
+            user={user}
+            car_id={carID}
+            close={handleClose}
+            onContentLoaded={onContentLoaded}
+          />
+        </Box>
+      </Modal>
       <div className="pg">
         <div className="title">
           <p>{console.log(cars)}Easy as</p>
@@ -146,9 +220,26 @@ function MidSection({ user }) {
         </div>
         <Slider {...settings}>
           {cars.map((car) => (
-            <CarCard key={cars._id} car={car} user={user} />
+            <CarCard
+              key={car._id}
+              car={car}
+              user={user}
+              action={handleReservationClick}
+              clicked={function () {
+                setCarID(car._id);
+                console.log(carID);
+                handleOpen();
+                handleReservationClick();
+              }}
+            />
           ))}
         </Slider>
+        {isClicked && !user && (
+          <Alert severity="warning">
+            <AlertTitle>Please Log In</AlertTitle>
+            You need to be logged in to Checkout.
+          </Alert>
+        )}
       </div>
     </React.Fragment>
   );

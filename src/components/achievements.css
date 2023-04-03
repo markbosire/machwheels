@@ -18,6 +18,7 @@
 
   padding: 0 150px;
 }
+
 .image img {
   width: 800px;
   height: 600px;
@@ -55,7 +56,7 @@
 }
 @media screen and (max-width: 1600px) {
   .image img {
-    width: 500px;
+    width: 400px;
     height: 450px;
     object-fit: cover;
   }

@@ -4,22 +4,37 @@ import CarCard from "./carCard";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "./checkout.css";
-import { useLocation } from "react-router-dom";
-function Checkout() {
+import CloseIcon from "@mui/icons-material/Close";
+import { Alert } from "@mui/material";
+
+function Checkout({ car_id, user, close, data, onContentLoaded }) {
+  const [isClicked, setIsClicked] = React.useState(false);
+  const handleReservationClick = () => {
+    setIsClicked(true);
+  };
+
   const [authToken, setAuthToken] = useState("");
-  const location = useLocation();
-  const thecar = location.state?.car || null;
-  const user = location.state?.user || null;
+
+  //const user = location.state?.user || null;
 
   const [car, setCar] = useState([]);
+  const [success, setSuccess] = useState(false);
   const [days, setDays] = useState(0);
   const [total, setTotal] = useState(0);
-  const [pickupDateTime, setPickupDateTime] = useState(new Date());
-  const [returnDateTime, setReturnDateTime] = useState(new Date());
-  const [pickupLocation, setPickupLocation] = useState("");
-  const [returnLocation, setReturnLocation] = useState("");
+  const [pickupDateTime, setPickupDateTime] = useState(
+    data ? data.pickupDateTime : new Date()
+  );
+  const [returnDateTime, setReturnDateTime] = useState(
+    data ? data.returnDateTime : new Date()
+  );
+  const [pickupLocation, setPickupLocation] = useState(
+    data ? data.pickupLocation : ""
+  );
+  const [returnLocation, setReturnLocation] = useState(
+    data ? data.returnLocation : ""
+  );
   useEffect(() => {
-    fetch(`https://car-rentals-backend.vercel.app/api/v1/car/${thecar._id}`)
+    fetch(`https://car-rentals-backend.vercel.app/api/v1/car/${car_id}`)
       .then((response) => response.json())
       .then((data) => {
         setCar(data);
@@ -27,7 +42,7 @@ function Checkout() {
       })
 
       .catch((error) => console.error(error));
-  }, [thecar._id, user.token]);
+  }, [car_id, user.token]);
   const handleCheckout = () => {
     const jsonData = {
       name: user.name,
@@ -50,11 +65,12 @@ function Checkout() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
+        setSuccess(true);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        setSuccess(false);
       });
+    handleReservationClick();
   };
 
   useEffect(() => {
@@ -78,7 +94,10 @@ function Checkout() {
     <React.Fragment>
       <div className="checkout">
         <section className="bottomwidget">
-          <h1>Checkout</h1>
+          <div className="checkout-title">
+            <h1>Checkout</h1>
+            <CloseIcon onClick={close} />
+          </div>
           {car.map((car) => (
             <CarCard key={car._id} car={car} />
           ))}
@@ -143,11 +162,24 @@ function Checkout() {
 
             {/* ... existing DatePicker for drop off */}
           </div>
-          <h1>Days: {days}</h1>
-          <h1>Total: {total}</h1>
-          <div className="btn-graad" onClick={handleCheckout}>
-            <span>Checkout</span>
+          <div className="tally">
+            <h1>Days: {days}</h1>
+            <h1>Total: {total}</h1>
           </div>
+          <div className="tally wth">
+            <div className="btn-graad" onClick={handleCheckout}>
+              <span>Checkout</span>
+            </div>
+
+            <div className="btn-graad" onClick={close}>
+              <span>Close</span>
+            </div>
+          </div>
+          {isClicked && (
+            <Alert severity={success ? "success" : "error"}>
+              {success ? "order was created successfully" : "Check credentials"}
+            </Alert>
+          )}
         </section>
       </div>
     </React.Fragment>

@@ -3,21 +3,32 @@ import { useNavigate } from "react-router-dom";
 import "./signUp.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+
+import { Alert } from "@mui/material";
 
 const SignUp = () => {
-  const notifySuccess = () => {
-    toast.success("Account created successfully!", {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeButton: false,
-    });
+  const [isClicked, setIsClicked] = React.useState(false);
+  const handleReservationClick = () => {
+    setIsClicked(true);
   };
-  let response;
+  function toggle() {
+    setPasswordtoggle(!passwordtoggle);
+  }
+  function toggleb() {
+    setConfirmPasswordtg(!confirmpasswordtg);
+  }
+
+  const [success, setSuccess] = useState(false);
+  const { errorCheck, setErrorCheck } = useState(false);
+  const [passwordtoggle, setPasswordtoggle] = useState(false);
+  let [responsestatus, setResponsestatus] = useState(0);
   const navigate = useNavigate();
+  const [error, setError] = useState(" Check Credentials");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmpasswordtg, setConfirmPasswordtg] = useState(false);
 
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -25,42 +36,36 @@ const SignUp = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      setError("Passwords do not match");
       return;
     }
-    response = await fetch(
-      "https://car-rentals-backend.vercel.app/api/v1/user/register",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: username, email, password }),
-      }
-    );
+    fetch("https://car-rentals-backend.vercel.app/api/v1/user/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: username, email, password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSuccess(true);
+        navigate("/home", { state: { user: data } });
+      })
+      .catch((error) => {
+        console.log(error);
+        let errorText = `Error ${error}`;
 
-    const data = await response.json();
-    console.log(data);
-    loading();
-    if (response.ok) {
-      notifySuccess();
-      navigate("/home", { state: { user: data } });
-    } else {
-      const errorText = await response.text();
-      console.log("tyu");
-    }
+        if (errorText.toLowerCase().includes("user")) {
+          setError("User already exists");
+        }
+
+        setErrorCheck(true);
+      });
   };
   function SignIn() {
     navigate({
       pathname: "/signin",
     });
   }
-  const myPromise = new Promise((resolve) => response);
-  function loading() {
-    toast.promise(myPromise, {
-      pending: "Signing Up",
-      success: "Sucessfully signed up",
-      error: "error",
-    });
-  }
+
   return (
     <div className="signUp">
       <ToastContainer />
@@ -76,11 +81,11 @@ const SignUp = () => {
           <img
             src="./assets/images/logoimg.png"
             alt="Your Logo"
-            className="logo"
+            className="logo up"
           />
 
           <form onSubmit={handleSubmit}>
-            <h2>Create MachWheels Account</h2>
+            <h2 className="up2">Create MachWheels Account</h2>
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -97,20 +102,38 @@ const SignUp = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="input-group" id="password">
+              <input
+                type={passwordtoggle ? "text" : "password"}
+                className="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {passwordtoggle ? (
+                <VisibilityOff onClick={toggle} sx={{ fontSize: "14px" }} />
+              ) : (
+                <Visibility onClick={toggle} sx={{ fontSize: "14px" }} />
+              )}
+            </div>
             <label htmlFor="confirm-password">Confirm Password</label>
-            <input
-              type="password"
-              id="confirm-password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            <button type="submit" className="button">
+            <div className="input-group" id="password">
+              <input
+                type={confirmpasswordtg ? "text" : "password"}
+                className="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              {confirmpasswordtg ? (
+                <VisibilityOff onClick={toggleb} sx={{ fontSize: "14px" }} />
+              ) : (
+                <Visibility onClick={toggleb} sx={{ fontSize: "14px" }} />
+              )}
+            </div>
+            <button
+              type="submit"
+              className="button"
+              onClick={handleReservationClick}
+            >
               Create Account
             </button>
             <div className="logintag">
@@ -120,6 +143,10 @@ const SignUp = () => {
               </span>
             </div>
           </form>
+          {success && (
+            <Alert severity="success">"You signed in successfully"</Alert>
+          )}
+          {errorCheck && <Alert severity="error">error</Alert>}
         </div>
       </div>
     </div>

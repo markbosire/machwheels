@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
 .form-group,
 .form-grou {
+  cursor: pointer;
   display: inline-block;
   padding: 10px;
   border: 1px solid grey;
@@ -31,7 +32,10 @@ input {
   font-size: 14pt;
   padding-left: 25px; /* Add padding to prevent the text from overlapping with the icon */
 }
-
+.form-group span {
+  margin-left: 26.5px !important;
+  font-size: 14px;
+}
 label {
   margin-left: 26px;
   display: block;
@@ -46,9 +50,34 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
 }
+.options-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 0px solid #000;
+  border-top: none;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.option {
+  z-index: 2;
+  display: block;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.option:hover,
+.selected {
+  background-color: #000;
+  color: #fff;
+}
 .widget {
   position: absolute;
-  top: 50%;
+  top: 32rem;
   left: 50%;
   transform: translate(-50%, -50%);
   /* Other styles */
@@ -76,7 +105,9 @@ select {
 }
 .bottom-widget .form-group {
   width: calc(26.566%);
+  max-height: 57px;
 }
+
 .widget section {
   display: flex;
 }
@@ -146,6 +177,19 @@ select {
 .react-datepicker__year-text--in-range {
   background-color: #000;
   color: #fff;
+}
+@media screen and (max-width: 1600px) {
+  label {
+    font-size: 10px;
+  }
+  .form-group span {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .widget {
+    min-width: 83%;
+  }
 }
 @media screen and (max-width: 1200px) {
   .widget {

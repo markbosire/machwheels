@@ -95,8 +95,8 @@ function Achievements() {
           style={{
             zIndex: 2,
             position: "absolute",
-            top: "420%",
-            left: "40%",
+            top: "257rem",
+            left: "45rem",
 
             display: "flex",
             justifyContent: "space-between",

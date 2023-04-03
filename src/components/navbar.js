@@ -4,23 +4,26 @@ import PersonIcon from "@mui/icons-material/Person";
 import logo from "../assets/images/logo.png";
 import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Avatar } from "@mui/material";
 
-function Navbar({ user }) {
+function Navbar({ user, sidebar, aboutScroll, contactScroll }) {
   const navigate = useNavigate();
- const [theuser, setTheuser] = useState(user);
- 
+  const [theuser, setTheuser] = useState(user);
+  function rentals() {
+    navigate("/rentals", { state: { user: user } });
+  }
+
   function SignIn() {
     navigate({
       pathname: "/signIn",
     });
   }
-  function SignOut(){
-    setTheuser(null)
+  function SignOut() {
+    setTheuser(null);
   }
-    
+
   function Dashboard() {
     navigate("/dashboard", { state: { user: user } });
   }
@@ -28,9 +31,9 @@ function Navbar({ user }) {
     <div className="navbar">
       <div className="section1">
         <img src={logo} alt="logo" className="img" />
-        <p>about</p>
-        <p>contact</p>
-        <p>reviews</p>
+        <p onClick={aboutScroll}>about</p>
+        <p onClick={contactScroll}>contact</p>
+        <p onClick={rentals}>rentals</p>
       </div>
 
       <div className="section2">
@@ -53,7 +56,7 @@ function Navbar({ user }) {
           )}
         </div>
         <span className="span"></span>
-        <SignalCellularAltIcon className="menu" />
+        <SignalCellularAltIcon className="menu" onClick={sidebar} />
       </div>
     </div>
   );

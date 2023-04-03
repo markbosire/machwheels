@@ -62,7 +62,7 @@
 }
 
 .logo {
-  margin-top: 100px;
+  margin-top: 10rem;
   width: 200px;
   margin-bottom: 20px;
 }
@@ -71,19 +71,35 @@
   width: 430px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
 }
 .signUp h2 {
-  font-size: 30px;
+  font-size: 1.5rem;
 }
 .signUp label {
-  font-size: 16px;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #000;
   margin-top: 10px;
   margin-left: 0;
 }
+.signUp .MuiInputBase-input,
+.signUp .MuiInputBase-root {
+  border: 0px solid #000 !important;
+}
+.input-group {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  font-size: 1rem;
+  justify-content: space-between;
+}
 
+.password {
+  border: 0px solid #000 !important;
+}
 .signUp input,
+#password,
 #email {
   width: 100%;
   max-width: 400px;
@@ -94,6 +110,11 @@
   margin-right: 0;
   border: 1px solid #000;
   border-radius: 5px;
+  font-size: 1rem;
+}
+.input-group input {
+  padding: 0;
+  margin: 0;
 }
 
 .signUp .button {
@@ -148,8 +169,56 @@
 .signuplink:hover {
   color: #000;
 }
+.up {
+  margin: 0 !important;
+}
 @media screen and (max-width: 1201px) {
   .left {
     display: none;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .up {
+    margin-top: 5rem !important;
+  }
+  .signUp h2 {
+    font-size: 2rem;
+  }
+  .signUp label {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 1800px) {
+  .up {
+    margin-top: 5rem !important;
+  }
+  .logo {
+    margin-top: 10rem;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .up {
+    margin-top: 3rem !important;
+  }
+  .logo {
+    margin-top: 5rem;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .up {
+    margin-top: 0rem !important;
+  }
+  .signUp input,
+  #email {
+    margin-bottom: 5px;
+  }
+  .logo {
+    margin-top: 0rem;
+  }
+  .up2 {
+    margin: 0;
+  }
+  .signUp label {
+    margin-top: 2px;
   }
 }
