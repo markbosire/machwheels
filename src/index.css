@@ -10,6 +10,12 @@
   position: absolute;
   top: 20%;
 }
+.MuiDrawer-paper {
+  min-width: 500px !important;
+  background-color: #bfccb8 !important;
+  color: #fff;
+  padding: 50px 100px;
+}
 .faq {
   margin-top: 200px;
   font-family: "Questrial", sans-serif;

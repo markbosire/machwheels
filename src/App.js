@@ -3,6 +3,7 @@ import SignUp from "./components/signUp";
 import SignIn from "./components/signin";
 import Dashboard from "./components/dashboard";
 import Checkout from "./components/checkout";
+import Rentals from "./components/rentals";
 import Home from "./Home";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/rentals" element={<Rentals />} />
       </Routes>
     </Router>
   );
